@@ -12,7 +12,7 @@ export const getProduct = async (id: number): Promise<Iproduct> => {
     return await instance.get(`/products/${id}`);
 }
 
-export const removeProduct = async (id: number) => {
+export const removeProduct = async (id: number): Promise<Iproduct> => {
     return await instance.delete(`/products/${id}`);
 }
 

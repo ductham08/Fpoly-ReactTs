@@ -1,16 +1,33 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Product 1",
+    "products": [{
+            "id": 2,
+            "name": "product 2",
             "price": 100,
-            "quantity": 1
+            "quantity": 100
         },
         {
-            "id": 2,
-            "name": "Product 2",
-            "price": 200,
-            "quantity": 2
+            "id": 3,
+            "name": "product 3",
+            "price": 100,
+            "quantity": 100
+        },
+        {
+            "id": 4,
+            "name": "product 4",
+            "price": 100,
+            "quantity": 100
+        },
+        {
+            "id": 5,
+            "name": "product 5",
+            "price": 100,
+            "quantity": 100
+        },
+        {
+            "id": 6,
+            "name": "product A",
+            "price": 100,
+            "quantity": 100
         }
     ]
 }
