@@ -1,9 +1,6 @@
-import { data } from 'cheerio/lib/api/attributes';
-import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useGetProductsQuery } from '../apiSlice/productApi';
-import { useAppDispatch, useAppSelector } from '../app/hook'
-import { deleteProduct, fetchProducts } from '../slices/products';
+import { useGetProductsQuery, useRemoveProductMutation } from '../apiSlice/productApi';
+import { Iproduct } from '../interfaces/product.interface';
 
 type Props = {}
 
@@ -11,23 +8,22 @@ const Product = () => {
 
     const { data: products, isLoading, error } = useGetProductsQuery();
 
-    // const dispatch = useAppDispatch();
-    // const products = useAppSelector((state) => state.product.value)
 
-    // const removeProduct = (id: number) => {
-    //     dispatch(deleteProduct(id))
-    // }
+    const onHandle = (product: Iproduct) => {
+        const id = product.id;
+        const [remove, result] = useRemoveProductMutation();
+        const removeProduct = remove(id as number)
+    }
 
-    // useEffect(() => {
-    //     dispatch(fetchProducts())
-    // }, [])
+
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error</div>;
     return (
-        < div>
+        < div >
             {products!.map((product: any) => (
                 <div key={product.id}>
                     <Link to={`/product/${product.id}`}>{product.name}</Link>
+                    <button onClick={() => onHandle(product)}>Remove</button>
                 </div>
             ))
             }
